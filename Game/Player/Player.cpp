@@ -1,5 +1,6 @@
 #include "Player.h"
 #include <Novice.h>
+#include "Game/InputMy.h"
 
 Player::Player() {
 	playerHandle_ = Novice::LoadTexture("./Sprite/playersea.png");
@@ -27,10 +28,10 @@ void Player::Update() {
 
 
 	float playerSpeed = 4.0f;
-	if (Novice::CheckHitKey(DIK_S)) {
+	if (InputMy::PressKey(DIK_S)) {
 		pos_.y += playerSpeed;
 	}
-	if (Novice::CheckHitKey(DIK_W)) {
+	if (InputMy::PressKey(DIK_W)) {
 		pos_.y -= playerSpeed;
 	}
 
@@ -45,7 +46,7 @@ void Player::Update() {
 
 
 	if (coolTime_ <= 0 ) {
-		if (Novice::CheckHitKey(DIK_SPACE)) {
+		if (InputMy::PressKey(DIK_SPACE)) {
 			Bullet b = { pos_,false };
 			bullets_.push_back(b);
 			coolTime_ = 10;

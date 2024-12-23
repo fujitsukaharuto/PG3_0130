@@ -1,5 +1,6 @@
 #include "ClearScene.h"
 #include <Novice.h>
+#include "Game/InputMy.h"
 
 ClearScene::ClearScene() {
 	backHandle_ = Novice::LoadTexture("./Sprite/sea2.png");
@@ -24,7 +25,7 @@ void ClearScene::Update() {
 		beginTime_--;
 	}
 	else {
-		if (Novice::CheckHitKey(DIK_RETURN)) {
+		if (InputMy::PressKey(DIK_RETURN)) {
 			isChangeScene_ = true;
 		}
 	}

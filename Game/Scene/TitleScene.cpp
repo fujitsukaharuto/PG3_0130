@@ -1,5 +1,6 @@
 #include "TitleScene.h"
 #include <Novice.h>
+#include "Game/InputMy.h"
 
 TitleScene::TitleScene() {
 
@@ -26,7 +27,7 @@ void TitleScene::Update() {
 		beginTime_--;
 	}
 	else {
-		if (Novice::CheckHitKey(DIK_SPACE)) {
+		if (InputMy::PressKey(DIK_SPACE)) {
 			isChangeScene_ = true;
 		}
 	}
